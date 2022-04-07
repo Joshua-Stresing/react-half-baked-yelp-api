@@ -8,3 +8,4 @@ export async function fetchBusinesses(zip = '93117', search = '') {
   const data = await resp.json();
   return data;
 }
+//update push
