@@ -6,21 +6,26 @@ import { fetchBusinesses } from './services/yelp';
 function App() {
   const [businesses, setBusinesses] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [zip, setZip] = useState('14007');
+  const [zip, setZip] = useState('');
   const [search, setSearch] = useState('');
   // TODO -- add state for zip / search and add event listeners to the inputs
 
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchBusinesses();
-      setBusinesses(data.businesses);
+      console.log(data);
+      setBusinesses(data.businesses);     
       setLoading(false);
     };
     fetchData();
   }, []);
 
   const handleClick = async () => {
+    
+    if (zip === '') return setZip('14006');
+    
     const data = await fetchBusinesses(zip, search);
+    
     return setBusinesses(data.businesses);
   };
 

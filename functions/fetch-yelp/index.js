@@ -5,6 +5,7 @@ const handler = async (event) => {
   const { zip, search } = event.queryStringParameters;
   // console.log({ zip, search });
   // add code here to fetch data from yelp API
+  console.log(process.env.REACT_APP_YELP_KEY);
   try {
     const response = await fetch(
       `https://api.yelp.com/v3/businesses/search?location=${zip}&term=${search}`,
@@ -15,6 +16,7 @@ const handler = async (event) => {
     );
     const data = await response.json();
     const json = JSON.stringify(data);
+    console.log(json);
 
     return {
       statusCode: 200,

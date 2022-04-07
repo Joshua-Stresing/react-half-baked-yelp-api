@@ -1,4 +1,4 @@
-export async function fetchBusinesses(zip = '14007', search = '') {
+export async function fetchBusinesses(zip = '14006', search = '') {
   const params = new URLSearchParams();
   params.set('zip', zip);
   params.set('search', search);
@@ -6,6 +6,7 @@ export async function fetchBusinesses(zip = '14007', search = '') {
     headers: { Accept: 'application/json' },
   });
   const data = await resp.json();
+  console.log(data);
   return data;
 }
 //update push
