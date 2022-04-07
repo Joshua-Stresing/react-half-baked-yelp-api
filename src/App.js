@@ -13,7 +13,6 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchBusinesses();
-      console.log(data);
       setBusinesses(data.businesses);     
       setLoading(false);
     };
@@ -23,7 +22,7 @@ function App() {
   const handleClick = async () => {
     
     if (zip === '') return setZip('14006');
-    
+
     const data = await fetchBusinesses(zip, search);
     
     return setBusinesses(data.businesses);
